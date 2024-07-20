@@ -93,7 +93,7 @@ Send a POST request to `/add_document` with form-data including:
 
 - `applicant_id`: The ID of the applicant
 - `file`: The document file
-- `metadata`: Additional metadata (optional)
+- `metadata`: Additional metadata
 
 ### Getting Status
 
