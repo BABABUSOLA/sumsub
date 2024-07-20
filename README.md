@@ -33,8 +33,8 @@ Before you begin, ensure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone <https://github.com/BABABUSOLA/sumsub>
+   cd <sumsub>
    ```
 
 2. **Create and activate a virtual environment:**
