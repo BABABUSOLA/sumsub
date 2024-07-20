@@ -1,6 +1,4 @@
-Sure, here’s a comprehensive `README.md` for your project, covering various aspects such as setup, configuration, usage, and troubleshooting. You can customize it based on your specific project details.
 
----
 
 # Sumsub Verification Integration
 
