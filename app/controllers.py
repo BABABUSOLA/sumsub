@@ -1,6 +1,7 @@
 from flask import request, jsonify, abort
 from app.services import SumsubDocument
 from app.utils import validate_id_doc_type
+from app.firestore_db import db
 
 def create_applicant():
     if request.method != 'POST':
@@ -57,4 +58,17 @@ def add_document():
 
 def get_status(applicant_id):
     response = SumsubDocument.get_status(applicant_id)
-    return jsonify(response)
+    # Parse the response data
+    identity_data = response.get("IDENTITY")
+    if not identity_data:
+        return jsonify({"error": "No identity data found"}), 404
+    else:   
+        #check firestore to see if the status exists
+        doc_ref = db.collection('applicants').document(applicant_id).collection('statuses').document()
+        doc = doc_ref.get()
+        if doc.exists:
+            return jsonify(doc.to_dict())
+        # Save status to Firestore
+        doc_ref.set(identity_data)
+
+        return jsonify(response)
